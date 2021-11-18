@@ -9,12 +9,12 @@ Paper Reading
 ### [Distributed Prioritized Experience Replay](https://arxiv.org/abs/1803.00933)
 - ASSIGNED_TO: Fangyuan
 - DATE_ADDED: 2021-11-18
-- NOTE: [](notes/dper.org)
+- NOTE: [note](notes/dper.org)
 
 ### [IMPALA: Scalable Distributed Deep-RL with Importance Weighted Actor-Learner Architectures](https://arxiv.org/abs/1802.01561)
 - ASSIGNED_TO: Fangyuan
 - DATE_ADDED: 2021-11-18
-- NOTE: [](notes/impala.org)
+- NOTE: [note](notes/impala.org)
 
 ## Feature Selection
 
