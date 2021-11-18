@@ -1,0 +1,9 @@
+#+TITLE: Distributed Prioritized Experience Replay
+#+AUTHOR: fangyuan
+
+Different from the traditional distributed machine learning which is
+training a model by sharing gradients (or network parameters),  due to
+the characters of RL's constant interaction with the environment, this
+paper proposes a method that hundreds of actors run on CPUs to generate
+data, and a single learner runs on a GPU to sample the most useful
+experiences and train the model.

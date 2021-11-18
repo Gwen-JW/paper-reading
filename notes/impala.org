@@ -1,0 +1,6 @@
+#+TITLE: IMPALA: Scalable Distributed Deep-RL with Importance Weighted Actor-Learner Architectures
+#+AUTHOR: fangyuan
+
+
+* Reference
+- https://zhuanlan.zhihu.com/p/58226117
