@@ -36,6 +36,7 @@ Paper Reading
 ### [Learning Incompressible Fluid Dynamics from Scratch](https://openreview.net/forum?id=KUDUoRsEphu)
 - ASSIGNED_TO: Jiawen
 - DATE_ADDED: 2021-11-15
+- NOTE: [note](notes/fdfm.md)
 ---
 
 # Archive
