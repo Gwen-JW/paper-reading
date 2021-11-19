@@ -1,5 +1,6 @@
 #+TITLE: IMPALA: Scalable Distributed Deep-RL with Importance Weighted Actor-Learner Architectures
 #+AUTHOR: fangyuan
+#+startup: latexpreview
 
 
 IMPALA uses an actor-critic setup to learn a policy $\pi$ and a baseline
@@ -20,15 +21,15 @@ V-trace is actually a off-policy GAE(generalized advantage estimate).
 
 In on-policy RL, the n-steps Bellman target is
 
-\begin{array}
+\begin{aligned}
 v_s &= V(x_s) + \sum_{t=s}^{s+n-1}\gamma^{t-s}(r_t + \gamma V(x_{t+1}) - V(x_t)) \\
 &= \sum_{t=s}^{s+n-1}\gamma^{t-s}r_t + \gamma^n V(x_{s+n})
-\end{array}
+\end{aligned}
 
 However, in off-policy RL, they use Importance Sampling to correct this
 
 \begin{equation*}
-v_s &= V(x_s) + \sum_{t=s}^{s+n-1}\gamma^{t-s} \prod_{i=s}^{t-1}\frac{\pi(a_i|x_i)}{\mu(a_i|x_i)} (r_t + \gamma V(x_{t+1}) - V(x_t)) \\
+v_s = V(x_s) + \sum_{t=s}^{s+n-1}\gamma^{t-s} \prod_{i=s}^{t-1}\frac{\pi(a_i|x_i)}{\mu(a_i|x_i)} (r_t + \gamma V(x_{t+1}) - V(x_t)) \\
 \end{equation*}
 
 They use the truncated IS as a variance reduction technique
@@ -41,6 +42,7 @@ The more dissimilar $\pi$ and $\mu$ are (the more off-policy we are), the
 larger the variance of this product.
 
 And there's also weighted temporal difference $\delta_t V$ by $\rho_t$.
+
 \begin{equation*}
 \rho_i = \min(\bar{\rho}, \frac{\pi(a_i|x_i)}{\mu(a_i|x_i)})
 \end{equation*}
@@ -52,7 +54,7 @@ we obtain the value function of the behaviour policy $V^{\mu}$.
 The final V-trace is
 
 \begin{equation*}
-v_s &= V(x_s) + \sum_{t=s}^{s+n-1}\gamma^{t-s} \prod_{i=s}^{t-1}\frac{\pi(a_i|x_i)}{\mu(a_i|x_i)} (r_t + \gamma V(x_{t+1}) - V(x_t)) \\
+v_s = V(x_s) + \sum_{t=s}^{s+n-1}\gamma^{t-s} \prod_{i=s}^{t-1}\frac{\pi(a_i|x_i)}{\mu(a_i|x_i)} (r_t + \gamma V(x_{t+1}) - V(x_t)) \\
 \end{equation*}
 
 
@@ -65,15 +67,17 @@ the speed at which we convergence to this function.
 \mathbb{E}_{a_{s} \sim \mu\left(\cdot \mid x_{s}\right)}\left[\frac{\pi_{\bar{\rho}}\left(a_{s} \mid x_{s}\right)}{\mu\left(a_{s} \mid x_{s}\right)} \nabla \log \pi_{\bar{\rho}}\left(a_{s} \mid x_{s}\right) q_{s} \mid x_{s}\right]
 \end{equation*}
 
-where $q_s = r_s + \gamma v_{s+1}$.
+where $q_s = r_s + \gamma v_{s+1}$ .
 
 ** Actor-Critic
 *** Critic update
+
 \begin{equation*}
 \left(v_{s}-V_{\theta}\left(x_{s}\right)\right) \nabla_{\theta} V_{\theta}\left(x_{s}\right)
 \end{equation*}
 
 *** Actor update
+
 \begin{equation*}
 \rho_{s} \nabla_{\omega} \log \pi_{\omega}\left(a_{s} \mid x_{s}\right)\left(r_{s}+\gamma v_{s+1}-V_{\theta}\left(x_{s}\right)\right)
 \end{equation*}
