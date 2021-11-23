@@ -37,6 +37,11 @@ Paper Reading
 - ASSIGNED_TO: Jiawen
 - DATE_ADDED: 2021-11-15
 - NOTE: [note](notes/fdfm.md)
+
+### [Machine Learning for Fluid mechanics](https://www.annualreviews.org/doi/abs/10.1146/annurev-fluid-010719-060214)
+- ASSIGNED_TO: Jiawen
+- DATA_ADDED: 2021-11-23
+- NOTE:
 ---
 
 # Archive
